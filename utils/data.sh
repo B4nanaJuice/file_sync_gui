@@ -1,0 +1,2 @@
+SYNCHRO_FILE=.synchro
+BACKUP_DIRECTORY=.backup
