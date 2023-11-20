@@ -9,12 +9,11 @@ def init():
 
     # Run the command and get the output into the resp variable
     # Decode the output as it's in bytes
-    resp = subprocess.check_output(["fsync", f"init -o {__origin} -d {__destination}"]).decode()
+    resp = subprocess.Popen(f"$HOME/file_sync_gui/fsync init -o {__origin} -d {__destination}", stdout=subprocess.PIPE,shell=True, text=True).stdout.read()
     # print(type(resp))
     # Print the response (Should be a dictionary)
     print(f'resp: {resp}')
     # Load the dict from the string and print the message
-    print(json.loads(resp).get("message"))
 
 def push():
     __force_origin = input("Force origin: ")
