@@ -1,2 +1,2 @@
 #! /bin/bash
-bash fsync.sh $@
+bash $HOME/file_sync_gui/fsync.sh $@
