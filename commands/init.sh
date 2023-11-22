@@ -42,7 +42,7 @@ function init(){
     # Test if both values are directories
     for d in $__origin $__destination; do
         if [ ! -d $d ]; then
-            echo "Error: $d is not a directory"
+            echo "{\"type\": \"error\", \"message\": \"$d is not a directory\"}"
             exit 0;
         fi
     done
