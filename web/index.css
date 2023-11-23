@@ -1,0 +1,17 @@
+.date_content {
+    width: 33%;
+    --s: 25px;
+    /* the size on the corner */
+    --t: 5px;
+    /* the thickness of the border */
+    --g: 20px;
+    /* the gap between the border and image */
+
+    padding: calc(var(--g) + var(--t));
+    outline: var(--t) solid #4e4546;
+    /* the color here */
+    outline-offset: calc(-1*var(--t));
+    -webkit-mask:
+        conic-gradient(at var(--s) var(--s), #0000 75%, #000 0) 0 0/calc(100% - var(--s)) calc(100% - var(--s)),
+        linear-gradient(#000 0 0) content-box;
+}
