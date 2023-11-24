@@ -1,7 +1,7 @@
 #! /bin/bash
 
-source $HOME/file_sync/utils/data.sh
-source $HOME/file_sync/utils/functions.sh
+source $HOME/file_sync_gui/utils/data.sh
+source $HOME/file_sync_gui/utils/functions.sh
 
 function main(){
     if [ $# -eq 0 ] || [ $1 = "help" ]; then
@@ -10,7 +10,7 @@ function main(){
 
     case $1 in
         init | push | save | load)  # Test if it's one of the commands
-            source "commands/$1.sh" # Import the content of the file depending on the given sub command
+            source "$HOME/file_sync_gui/commands/$1.sh" # Import the content of the file depending on the given sub command
             $1 "${@:2}"             # Call the function linked to the sub command with arguments
         ;;
 
