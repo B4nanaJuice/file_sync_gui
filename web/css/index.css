@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&family=Roboto:wght@300&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+:root {
+    --wrapper-padding: 15px;
+
+    --dark: #371B58;
+    --primary-dark: #4C3575;
+    --primary: #5B4B8A;
+    --light: #7858A6;
+}
+
+body {
+    background: var(--dark);
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.wrapper > div {
+    background: var(--primary-dark);
+    padding: var(--wrapper-padding);
+    border-radius: 10px;
+    border: var(--primary) 2px solid;
+}
+
+.wrapper > div > h4 {
+    color: white;
+}
+
+.form > * {
+    width: 100%;
+    height: 4vh;
+    margin-top: 1.5vh;
+}
+
+.form input {
+    outline: none;
+    border: none;
+    background: none;
+    border-bottom: #BABABA 2px solid;
+    transition: border-bottom .3s ease;
+}
+
+.form input:focus {
+    border-bottom: var(--light) 2px solid;
+}
+
+.form button {
+    color: black;
+    border: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+/* input[type=text] {
+    border: none;
+    outline: none;
+    background: none;
+    border-bottom: #4e4546 solid 2px;
+    transition: border-bottom .3s ease;
+}
+
+input[type=text]:focus {
+    border-bottom: #0c9911 solid 2px;
+}
+
+.notifications {
+    position: absolute;
+    width: 60%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+}
+
+.notification-content {
+    margin: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+}
+
+.notification-content button {
+    margin: 0px 10px 0px 0px;
+    width: 25px;
+    height: 25px;
+    color: white;
+    font-weight: 900;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.error {
+    background: red;
+}
+
+.success {
+    background: lime;
+} */
