@@ -1,0 +1,47 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    margin: 10px;
+    grid-template-rows: repeat(8, 11vh);
+}
+
+.init_content {
+    grid-column: 1;
+    grid-row: 1 / 3;
+}
+
+.push_content {
+    grid-column: 1;
+    grid-row: 3 / 5;
+}
+
+.save_content {
+    grid-column: 1;
+    grid-row: 5 / 7;
+}
+
+.load_content {
+    grid-column: 1;
+    grid-row: 7 / 9;
+}
+
+.last_sync_content {
+    grid-column: 4;
+    grid-row: 1 / 3;
+}
+
+.synced_directories_content {
+    grid-column: 4;
+    grid-row: 3 / 6;
+}
+
+.backup_size_stats_content {
+    grid-column: 2 / 4;
+    grid-row: 1 / 6;
+}
+
+.sync_stats_content {
+    grid-column: 2 / 5;
+    grid-row: 6 / 9;
+}
