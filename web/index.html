@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Hello, World!</title>        
+        <title>File sync | Dashboard</title>        
         <!-- Include eel.js - note this file doesn't exist in the 'web' directory -->
         <script type="text/javascript" src="/eel.js"></script>
         <script src="js/date.js"></script>
-        <script src="js/init.js"></script>
+        <script src="js/commands.js"></script>
         <script src="js/response.js"></script>
 
-        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/grid.css">
     </head>
     
     <body>
+
         <div class="notifications">
-            <div class="error notification-content">
+            <!-- <div class="error notification-content">
                 <button onclick="this.parentNode.remove()">X</button>
                 <p class="message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis obcaecati dignissimos placeat eaque quod quidem soluta voluptatem est. Ipsa similique aspernatur possimus dolor eveniet, fuga molestias error esse at. Eaque!</p>
             </div>
@@ -23,41 +25,51 @@
                     <h4 class="title">Success</h4>
                     <p class="message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis obcaecati dignissimos placeat eaque quod quidem soluta voluptatem est. Ipsa similique aspernatur possimus dolor eveniet, fuga molestias error esse at. Eaque!</p>
                 </div>
+            </div> -->
+        </div>
+
+        <div class="wrapper">
+            <div class="init_content">
+                <h4>Initialize</h4>
+                <div class="form">
+                    <input type="text" class="directory" placeholder="Origin directory">
+                    <input type="text" class="directory" placeholder="Destination directory">
+                    <button>Initialize</button>
+                </div>
             </div>
-        </div>
 
-        <div class="date_content content">
-            <h4 class="title">Last date: </h4>
-            <h2 class="date">Mon Nov 20 22:29:46 CET 2023</h2>
-            <button onclick="eel.getDate()" class="date_refresh">Refresh</button>
-        </div>
+            <div class="push_content">
+                <h4>Push</h4>
+                <div class="form">
+                    <input type="text" class="directory" placeholder="Force origin">
+                    <div></div>
+                    <button>Push</button>
+                </div>
+            </div>
 
-        <div class="init_content content">
-            <h4 class="title">Initialize directories</h4>
-            <input type="text" class="directory" placeholder="First directory">
-            <input type="text" class="directory" placeholder="Second directory">
-            <button onclick="init()">Initialize</button>
-        </div>
+            <div class="save_content">
+                <h4>Save</h4>
+                <div class="form">
+                    <input type="text" class="directory" placeholder="Origin directory">
+                    <input type="text" class="version" placeholder="backup version">
+                    <button>Save backup</button>
+                </div>
+            </div>
 
-        <div class="push_content content">
-            <h4 class="title">Sync directories</h4>
-            <input type="text" class="directory" placeholder="Force origin">
-            <input type="submit" value="Push">
-        </div>
+            <div class="load_content">
+                <h4>Load</h4>
+                <div class="form">
+                    <input type="text" class="version" placeholder="Backup version">
+                    <input type="text" class="directory" placeholder="Destination directory">
+                    <button>Load backup</button>
+                </div>
+            </div>
 
-        <div class="save_content content">
-            <h4 class="title">Save backup</h4>
-            <input type="text" class="directory" placeholder="Directory">
-            <input type="text" class="version" placeholder="Version">
-            <input type="submit" value="Save">
-        </div>
+            <div class="last_sync_content">Last sync</div>
+            <div class="synced_directories_content">Synced directories</div>
 
-        <div class="load_content content">
-            <h4 class="title">Load backup</h4>
-            <input type="text" class="version" placeholder="Version">
-            <input type="text" class="directory" placeholder="Destination directory">
-            <button onclick="console.log(document.querySelector('.load_content').querySelector('.directory').value)">Load</button>
+            <div class="backup_size_stats_content">Backup size stats</div>
+            <div class="sync_stats_content">Sync stats</div>
         </div>
-
     </body>
 </html>
