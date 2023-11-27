@@ -15,7 +15,8 @@
     <body>
 
         <div class="notifications">
-            <!-- <div class="error notification-content">
+        <!-- 
+            <div class="error notification-content">
                 <button onclick="this.parentNode.remove()">X</button>
                 <p class="message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis obcaecati dignissimos placeat eaque quod quidem soluta voluptatem est. Ipsa similique aspernatur possimus dolor eveniet, fuga molestias error esse at. Eaque!</p>
             </div>
@@ -25,43 +26,62 @@
                     <h4 class="title">Success</h4>
                     <p class="message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis obcaecati dignissimos placeat eaque quod quidem soluta voluptatem est. Ipsa similique aspernatur possimus dolor eveniet, fuga molestias error esse at. Eaque!</p>
                 </div>
-            </div> -->
+            </div> 
+        -->
         </div>
 
         <div class="wrapper">
-            <div class="init_content">
-                <h4>Initialize</h4>
-                <div class="form">
-                    <input type="text" class="directory" placeholder="Origin directory">
-                    <input type="text" class="directory" placeholder="Destination directory">
-                    <button>Initialize</button>
+            <div class="commands">
+                <div class="init_content">
+                    <!-- https://www.flaticon.com/fr/icone-gratuite/accomplissement_12964092 -->
+                    <img src="img/init_icon.png">
+                    <div>
+                        <h4>Initialize</h4>
+                        <div class="form">
+                            <input type="text" class="directory" placeholder="Origin directory">
+                            <input type="text" class="directory" placeholder="Destination directory">
+                            <button>Initialize</button>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="push_content">
-                <h4>Push</h4>
-                <div class="form">
-                    <input type="text" class="directory" placeholder="Force origin">
-                    <div></div>
-                    <button>Push</button>
+                <div class="push_content">
+                    <!-- https://www.flaticon.com/fr/icone-gratuite/accomplissement_12982228 -->
+                    <img src="img/push_icon.png">
+                    <div>
+                        <h4>Sync content</h4>
+                        <div class="form">
+                            <input type="text" class="directory" placeholder="Force origin">
+                            <input type="text" style="visibility: hidden;" placeholder="Why are you looking at this ?">
+                            <button>Sync</button>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="save_content">
-                <h4>Save</h4>
-                <div class="form">
-                    <input type="text" class="directory" placeholder="Origin directory">
-                    <input type="text" class="version" placeholder="backup version">
-                    <button>Save backup</button>
+                <div class="save_content">
+                    <!-- https://www.flaticon.com/fr/icone-gratuite/garantie_12982181 -->
+                    <img src="img/save_icon.png">
+                    <div>
+                        <h4>Save a backup</h4>
+                        <div class="form">
+                            <input type="text" class="directory" placeholder="Origin directory">
+                            <input type="text" class="version" placeholder="backup version">
+                            <button>Save backup</button>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="load_content">
-                <h4>Load</h4>
-                <div class="form">
-                    <input type="text" class="version" placeholder="Backup version">
-                    <input type="text" class="directory" placeholder="Destination directory">
-                    <button>Load backup</button>
+                <div class="load_content">
+                    <!-- https://www.flaticon.com/fr/icone-gratuite/inspection_12963811 -->
+                    <img src="img/load_icon.png">
+                    <div>
+                        <h4>Load a backup</h4>
+                        <div class="form">
+                            <input type="text" class="version" placeholder="Backup version">
+                            <input type="text" class="directory" placeholder="Destination directory">
+                            <button>Load backup</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
