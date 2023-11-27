@@ -5,20 +5,27 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    color: white;
+    color: var(--text-color-light)
 }
 
 :root {
     --wrapper-padding: 15px;
-
-    --dark: #371B58;
-    --primary-dark: #4C3575;
-    --primary: #5B4B8A;
-    --light: #7858A6;
+    --background: #d5dae0;
+    --background-down: #d0d4da;
+    --text-color-light: #6d6d6d;
+    --text-color: #2e2a27;
 }
 
 body {
-    background: var(--dark);
+    background: var(--background-down);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-color-light)
+}
+
+p {
+    color: var(--text-color);
 }
 
 button:hover {
@@ -26,19 +33,43 @@ button:hover {
 }
 
 .wrapper > div {
-    background: var(--primary-dark);
     padding: var(--wrapper-padding);
-    border-radius: 10px;
-    border: var(--primary) 2px solid;
+    border-radius: 5px;
+    border: none;
+    display: flex;
+    align-items: center;
+    background-color: var(--background);
+    box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px  rgba(255,255,255, 0.5);
 }
 
-.wrapper > div > h4 {
-    color: white;
+.commands {
+    display: flex;
+    flex-direction: column;
+}
+
+.commands > div {
+    width: 90%;
+    margin: 2.5% auto;
+    height: 22.5%;
+    box-shadow: inset 9px 9px 16px rgb(163,177,198,0.6), inset -9px -9px 16px  rgba(255,255,255, 0.5);
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    padding: var(--wrapper-padding);
+    background: var(--background-down);
+}
+
+.commands > div img {
+    height: 8vh;
+    margin: 2.5vh 2.5vh 2.5vh 1vh;
+    padding: .5vh;
+    border-radius: 5px;
+    box-shadow: 5px 5px 16px rgb(163,177,198,0.6), -5px -5px 16px  rgba(255,255,255, 0.5);
 }
 
 .form > * {
-    width: 100%;
-    height: 4vh;
+    width: 90%;
+    height: 3vh;
     margin-top: 1.5vh;
 }
 
@@ -46,19 +77,36 @@ button:hover {
     outline: none;
     border: none;
     background: none;
-    border-bottom: #BABABA 2px solid;
-    transition: border-bottom .3s ease;
+    box-shadow: inset 5px 5px 10px rgb(163,177,198,0.6), 
+                inset -5px -5px 10px  rgba(255,255,255, 0.5);
+    transition: box-shadow 1s ease;
+    padding: var(--wrapper-padding);
+    border-radius: 5px;
+    color: var(--text-color);
 }
 
 .form input:focus {
-    border-bottom: var(--light) 2px solid;
+    box-shadow: 5px 5px 10px rgb(163,177,198,0.6), 
+                -5px -5px 10px  rgba(255,255,255, 0.5);
+}
+
+.form input::placeholder {
+    color: var(--text-color);
 }
 
 .form button {
-    color: black;
-    border: rgba(255, 255, 255, 0.05);
     border-radius: 5px;
-    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    background: var(--background);
+    box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px  rgba(255,255,255, 0.5);
+}
+
+.form button:active {
+    box-shadow: 9px 9px 16px rgb(163,177,198,0.6), 
+                -9px -9px 16px  rgba(255,255,255, 0.5), 
+                inset 5px 5px 16px rgb(163,177,198,0.6), 
+                inset -5px -5px 16px  rgba(255,255,255, 0.5);
+
 }
 
 /* input[type=text] {
