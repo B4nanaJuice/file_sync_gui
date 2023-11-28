@@ -3,7 +3,7 @@
     grid-template-columns: repeat(4, 23vw);
     grid-gap: 4.5vh 1.7vw;
     margin: 2vh 1.5vw;
-    grid-template-rows: repeat(8, 8vh);
+    grid-template-rows: repeat(8, 7.5vh);
 }
 
 .commands {
