@@ -69,4 +69,6 @@ function conflict(){
             rm $2/$line
         fi
     done
+
+    echo "$1 $2 $(date | sed 's/ /-/g')" > $SYNCHRO_FILE
 }
