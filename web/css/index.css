@@ -21,11 +21,20 @@
 }
 
 body {
-    background: linear-gradient(180deg, rgba(2,19,37,1) 0%, rgba(9,78,119,1) 100%);
+    background: linear-gradient(180deg, rgba(2, 19, 37, 1) 0%, rgba(9, 78, 119, 1) 100%);
 }
 
-h1, h2, h3, h4, h5, h6 {
-    color: var(--text-color-light)
+h1,
+h2 {
+    color: var(--text-color);
+}
+
+
+h3,
+h4,
+h5,
+h6 {
+    color: var(--text-color-light);
 }
 
 p {
@@ -38,8 +47,8 @@ button:hover {
 
 .navbar {
     width: 100%;
-    background: linear-gradient(270deg, rgba(52,195,237,1) 0%, rgba(13,78,136,1) 100%);
-    padding: 10px;
+    background: linear-gradient(270deg, rgba(52, 195, 237, 1) 0%, rgba(13, 78, 136, 1) 100%);
+    padding: 0.7vh;
 }
 
 .navbar h3 {
@@ -51,8 +60,12 @@ button:hover {
     border-radius: 5px;
     border: none;
     display: flex;
-    align-items: center;
-    background: linear-gradient(90deg, rgba(193,205,221,1) 0%, rgba(176,199,230,1) 100%);
+    align-items: baseline;
+    background: linear-gradient(90deg, rgba(193, 205, 221, 1) 0%, rgba(176, 199, 230, 1) 100%);
+}
+
+.wrapper > div > div {
+    width: 100%;
 }
 
 .wrapper h4 {
@@ -65,14 +78,13 @@ button:hover {
 }
 
 .commands > div {
-    width: 90%;
     margin: 2.5% auto;
     height: 22.5%;
-    box-shadow: inset 9px 9px 16px rgb(163,177,198,0.6), inset -9px -9px 16px  rgba(255,255,255, 0.3);
+    box-shadow: inset 9px 9px 16px rgb(163, 177, 198, 0.6), inset -9px -9px 16px rgba(255, 255, 255, 0.3);
     align-items: center;
     border-radius: 5px;
     padding: var(--wrapper-padding);
-    background: linear-gradient(90deg, rgba(194,211,229,1) 0%, rgba(181,194,211,1) 100%);
+    background: linear-gradient(90deg, rgba(194, 211, 229, 1) 0%, rgba(181, 194, 211, 1) 100%);
 }
 
 .form {
@@ -86,15 +98,15 @@ button:hover {
 .form > * {
     width: 90%;
     height: 3vh;
-    margin-top: 1.5vh;
+    margin-top: 1vh;
 }
 
 .form input {
     outline: none;
     border: none;
     background: none;
-    box-shadow: inset 5px 5px 10px rgb(163,177,198,0.6), 
-                inset -5px -5px 10px  rgba(255,255,255, 0.3);
+    box-shadow: inset 5px 5px 10px rgb(163, 177, 198, 0.6),
+        inset -5px -5px 10px rgba(255, 255, 255, 0.3);
     transition: box-shadow 1s ease;
     padding: var(--wrapper-padding);
     border-radius: 5px;
@@ -102,8 +114,8 @@ button:hover {
 }
 
 .form input:focus {
-    box-shadow: 5px 5px 10px rgb(163,177,198,0.6), 
-                -5px -5px 10px  rgba(255,255,255, 0.3);
+    box-shadow: 5px 5px 10px rgb(163, 177, 198, 0.6),
+        -5px -5px 10px rgba(255, 255, 255, 0.3);
 }
 
 .form input::placeholder {
@@ -114,28 +126,47 @@ button:hover {
     border-radius: 5px;
     border: none;
     color: var(--light);
-    background: linear-gradient(90deg, rgba(52,195,237,1) 0%, rgba(13,78,136,1) 100%);
-    box-shadow: 3px 3px 9px rgb(0,0,0,0.3), -9px -9px 16px  rgba(255,255,255, 0.5);
+    background: linear-gradient(90deg, rgba(52, 195, 237, 1) 0%, rgba(13, 78, 136, 1) 100%);
+    box-shadow: 3px 3px 9px rgb(0, 0, 0, 0.3), -9px -9px 16px rgba(255, 255, 255, 0.5);
 }
 
 .form button:active {
-    box-shadow: 9px 9px 16px rgb(163,177,198,0.6), 
-                -9px -9px 16px  rgba(255,255,255, 0.3), 
-                inset 5px 5px 6px rgb(0,0,0,0.2),
-                inset -5px -5px 6px  rgba(255,255,255, 0.15);
+    box-shadow: 9px 9px 16px rgb(163, 177, 198, 0.6),
+        -9px -9px 16px rgba(255, 255, 255, 0.3),
+        inset 5px 5px 6px rgb(0, 0, 0, 0.2),
+        inset -5px -5px 6px rgba(255, 255, 255, 0.15);
 
 }
 
-/* input[type=text] {
-    border: none;
-    outline: none;
-    background: none;
-    border-bottom: #4e4546 solid 2px;
-    transition: border-bottom .3s ease;
+.last_sync_content > * {
+    width: 90%;
+    margin: auto;
 }
 
-input[type=text]:focus {
-    border-bottom: #0c9911 solid 2px;
+.last_sync {
+    margin: 3.5vh auto 5.5vh auto;
+    text-align: center;
+}
+
+.synced_directories_content > div > div {
+    display: flex;
+}
+
+.directories {
+    width: 70%;
+}
+
+.status {
+    width: 30%;
+}
+
+.directories > h2,
+.status > h2 {
+    margin-top: 6vh;
+}
+
+.status > h2 {
+    text-align: right;
 }
 
 .notifications {
@@ -166,14 +197,10 @@ input[type=text]:focus {
     background: none;
 }
 
-button:hover {
-    cursor: pointer;
-}
-
 .error {
     background: red;
 }
 
 .success {
     background: lime;
-} */
+}
