@@ -6,5 +6,5 @@ function refresh_date(d) {
     __time = __date[3]
     __year = __date[5]
 
-    document.querySelector(".date").textContent = `${__day} ${__month} ${__year} ${__time}`
+    document.querySelector(".last_sync").textContent = `${__day} ${__month} ${__year} ${__time}`
 }
