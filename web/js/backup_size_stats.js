@@ -43,11 +43,13 @@ function backupSizeStats(data) {
     data: {
         labels: versions,
         datasets: [{
+            label:"Files in the backup",
             backgroundColor: barColors,
             data: countValues,
             yAxisID: 'y'
 
         }, {
+            label:"Size of the backup",
             backgroundColor: barColors2,
             data: sizeValues,
             yAxisID: 'y1'
@@ -56,8 +58,8 @@ function backupSizeStats(data) {
     options: {
         legend: {display: false},
         title: {
-            display: true,
-            text: "World Wine Production 2018"
+            display: false,
+            text: ""
         },
         scales: {
             y: {
