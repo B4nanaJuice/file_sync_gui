@@ -27,13 +27,21 @@ function syncStats(data) {
             lineTension: 0,
             backgroundColor: "#123456",
             borderColor: "#456789",
-            data: counts
+            data: counts,
+            tension: 0.4,
+            cubicInterpolationMode: 'monotone'
         }]
     },
     options: {
         legend: {display: false},
         scales: {
-        yAxes: [{ticks: {min: 6, max:16}}],
+            yAxes: [{ticks: {min: 6, max:16}}],
+            y: {
+                grid: {
+                    drawOnChartArea: false
+                }
+            }
+            
         }
     }
     });
