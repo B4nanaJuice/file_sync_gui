@@ -42,7 +42,7 @@
                         <div class="form">
                             <input type="text" class="directory" placeholder="Origin directory">
                             <input type="text" class="directory" placeholder="Destination directory">
-                            <button>Initialize</button>
+                            <button onclick="init()">Initialize</button>
                         </div>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
                         <div class="form">
                             <input type="text" class="directory" placeholder="Force origin">
                             <input type="text" style="visibility: hidden;" placeholder="Why are you looking at this ?">
-                            <button>Sync</button>
+                            <button onclick="push()">Sync</button>
                         </div>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                         <div class="form">
                             <input type="text" class="directory" placeholder="Origin directory">
                             <input type="text" class="version" placeholder="backup version">
-                            <button>Save backup</button>
+                            <button onclick="save()">Save backup</button>
                         </div>
                     </div>
                 </div>
@@ -75,7 +75,7 @@
                         <div class="form">
                             <input type="text" class="version" placeholder="Backup version">
                             <input type="text" class="directory" placeholder="Destination directory">
-                            <button>Load backup</button>
+                            <button onclick="load()">Load backup</button>
                         </div>
                     </div>
                 </div>
@@ -92,17 +92,17 @@
                     <h4>Synced directories</h4>
                     <div>
                         <div class="directories">
-                            <h2 class="dirA">path/to/dirA</h2>
-                            <h2 class="dirB">path/to/the/dirB</h2>
+                            <h2 class="dirA"></h2>
+                            <h2 class="dirB"></h2>
                         </div>
                         <div class="status">
                             <h2 class="dirA">
-                                <i class="fa-solid fa-check fa-xl" style="color: green;"></i>
-                                <i class="fa-solid fa-xmark fa-2xl" style="color: red;"></i>
+                                <i class="fa-solid fa-check fa-xl" style="color: green; display: none;"></i>
+                                <i class="fa-solid fa-xmark fa-2xl" style="color: red; display: none;"></i>
                             </h2>
                             <h2 class="dirB">
-                                <i class="fa-solid fa-check fa-xl" style="color: green;"></i>
-                                <i class="fa-solid fa-xmark fa-2xl" style="color: red;"></i>
+                                <i class="fa-solid fa-check fa-xl" style="color: green; display: none;"></i>
+                                <i class="fa-solid fa-xmark fa-2xl" style="color: red; display: none;"></i>
                             </h2>
                         </div>
                     </div>
@@ -132,5 +132,6 @@
         <script src="js/init.js"></script>
         <script src="js/backup_size_stats.js"></script>
         <script src="js/sync_stats.js"></script>
+        <script src="js/refresh.js"></script>
     </body>
 </html>
