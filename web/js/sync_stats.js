@@ -1,18 +1,33 @@
 eel.expose(syncStats)
-function syncStats() {
-    const xValues = [50,60,70,80,90,100,110,120,130,140,150];
-    const yValues = [7,8,8,9,9,9,10,11,14,14,15];
+function syncStats(data) {
+
+    // data = {
+    //     "231219": 3,
+    //     "231220": 2,
+    //     "231221": 7
+    // }
+
+    let dates = Object.keys(data)
+    dates = dates.reverse()
+    dates.length = Math.min(dates.length, 20)
+    dates = dates.reverse()
+
+    let counts = Object.values(data)
+    counts = counts.reverse()
+    counts.length = Math.min(counts.length, 20)
+    counts = counts.reverse()
 
     new Chart("sync_stats_chart", {
     type: "line",
     data: {
-        labels: xValues,
+        labels: dates,
         datasets: [{
-        fill: false,
-        lineTension: 0,
-        backgroundColor: "#123456",
-        borderColor: "#456789",
-        data: yValues
+            label: "Push amount",
+            fill: false,
+            lineTension: 0,
+            backgroundColor: "#123456",
+            borderColor: "#456789",
+            data: counts
         }]
     },
     options: {

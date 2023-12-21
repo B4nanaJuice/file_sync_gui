@@ -1,19 +1,20 @@
 eel.expose(backupSizeStats)
 function backupSizeStats(data) {
-    data = {
-        "1.1.1": {
-            "count": 3,
-            "size": 52
-        },
-        "1.1.2": {
-            "count": 5,
-            "size": 85
-        },
-        "1.1.3": {
-            "count": 5,
-            "size": 85
-        }
-    }
+    console.log(data)
+    // data = {
+    //     "1.1.1": {
+    //         "count": 3,
+    //         "size": 52
+    //     },
+    //     "1.1.2": {
+    //         "count": 5,
+    //         "size": 85
+    //     },
+    //     "1.1.3": {
+    //         "count": 5,
+    //         "size": 85
+    //     }
+    // }
 
     let versions = Object.keys(data);
     versions = versions.reverse()
@@ -43,11 +44,13 @@ function backupSizeStats(data) {
     data: {
         labels: versions,
         datasets: [{
+            label: "File amount",
             backgroundColor: barColors,
             data: countValues,
             yAxisID: 'y'
 
         }, {
+            label: "Backup size",
             backgroundColor: barColors2,
             data: sizeValues,
             yAxisID: 'y1'

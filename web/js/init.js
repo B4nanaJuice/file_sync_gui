@@ -1,9 +1,5 @@
 window.onload = (event) => {
-    refresh_date("Thu Nov 30 14:41:34 CET 2023")
-    syncedDirs({
-        "path/to/first/dir": true,
-        "second/dir": false
-    })
-    backupSizeStats()
-    syncStats()
+    eel.refresh_date()
+    eel.refresh_backup_size()
+    eel.sync_stats()
 };
