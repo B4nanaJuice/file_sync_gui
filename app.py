@@ -32,6 +32,12 @@ def load():
 
     subprocess.run(["fsync", f"load -v {__version} -d {__destination}"])
 
+def test():
+    resp = subprocess.Popen("for d in $(ls .backup/); do find .backup/$d/ -type f | xargs ls -l | awk '{count+=$5} END{print count}' | xargs echo $d | sed -e 's/ /,/g' -e 's/$/,/g'; done", stdout=subprocess.PIPE,shell=True, text=True).stdout.read()
+    print(resp)
+
+test()
+
 while user_input != "quit" and user_input != "exit":
 
     {
