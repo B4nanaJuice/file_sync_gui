@@ -1,13 +1,8 @@
 function push(){
 
-    # Test if the user asks for the help
-    if [ $# -ne 0 ] && [ $1 = "help" ]; then
-        push_help;
-    fi
-
     # Test if the synchro file is created, if not, ask the user to init the two directories
     if [ ! -f $SYNCHRO_FILE ]; then 
-        echo "Error: synchro file can't be found. Please initialize your directories before pushing."
+        echo "{\"type\": \"error\", \"message\": \"Synchro file can't be found, please initialize your directories before syncing them\"}"
         exit 0;
     fi
 
@@ -40,41 +35,36 @@ function push(){
     local __temp_a=$(awk '{print $1}' $SYNCHRO_FILE);
     local __temp_b=$(awk '{print $2}' $SYNCHRO_FILE);
     local __reference_date="";
+    local __time_a=$(date -d "$(find $__temp_a -type f -exec stat \{} --printf="%y\n" \; | sort -n -r | head -n 1)" +"%y%m%d%H%M%S");
+    local __time_b=$(date -d "$(find $__temp_b -type f -exec stat \{} --printf="%y\n" \; | sort -n -r | head -n 1)" +"%y%m%d%H%M%S");
 
     # If the origin dir has not been specified
     if [ -z $__origin ]; then 
         # Get the date from the synchro file
-        __reference_date=$(date -d "$(awk '{print $3}' $SYNCHRO_FILE | sed 's/-/ /g')")
+        __reference_date=$(date -d "$(awk '{print $3}' $SYNCHRO_FILE | sed 's/-/ /g')" +"%y%m%d%H%M%S")
 
         # Test which one has recent modifications
-        # If the first dir has recent modifications
-        if [[ "$(date -r $__temp_a)" > "$__reference_date" ]]; then 
+        # If the first dir has recent modifications (don't check if there is a conflict)
+        if [[ "$__time_a" > "$__reference_date" ]]; then 
 
-            # If the second dir has also recent modifications -> conflict
-            if [[ "$(date -r $__temp_b)" > "$__reference_date" ]]; then 
-                echo "Error: there is a conflict"
-                conflict $__temp_a $__temp_b
-                exit 0;
-            else
-                __origin=$__temp_a;
-                __destination=$__temp_b;
-            fi
+            __origin=$__temp_a;
+            __destination=$__temp_b;
 
         # If there is the second dir with recent modifications
-        elif [[ "$(date -r $__temp_b)" > "$__reference_date" ]]; then 
+        elif [[ "$__time_b" > "$__reference_date" ]]; then 
 
             __origin=$__temp_b;
             __destination=$__temp_a;
 
         # If there is no recent modification in both of the directories
         else
-            echo "The two directories are up to date. Nothing to change."
+            echo "{\"type\": \"error\", \"message\": \"The directories are up to date, nothing to change\"}"
             exit 0;
         fi
 
     else
         if [ ! -d $__origin ]; then 
-            echo "Error: $__origin is not a directory"
+            echo "{\"type\": \"error\", \"message\": \"$__origin is not a directory\"}"
             exit 0;
         fi
 
@@ -85,7 +75,7 @@ function push(){
         elif [ $(echo $__origin | sed 's/^\.\///; s/\/$//') = $__temp_b ]; then
             __destination=$__temp_a
         else
-            echo "Error: $__origin is not in the synchro configuration"
+            echo "{\"type\": \"error\", \"message\": \"$__origin is not in the synchro file configuration\"}"
             exit 0;
         fi
 
@@ -95,24 +85,8 @@ function push(){
 
     echo "$__origin $__destination $(date | sed 's/ /-/g')" > $SYNCHRO_FILE
 
-    exit 0;
-    
-}
-
-function push_help(){
-    
-    echo
-    echo " push [-f [directory]]"
-    echo 
-    echo " Synchronize the content of two directories registered into a synchronization file. The copy will be"
-    echo " made only if one of the two directories has recent modifications. If both of the two directories have"
-    echo " recent modifications, there is a conflict and for each different file, the user will have to choose the"
-    echo " file they want to keep."
-    echo
-    echo " available options :"
-    echo " -f | --force-origin           force the sync by copying the content of the origin directory into the"
-    echo "    |                          other one without knowing the existence of conflict"
-    echo
+    echo "{\"type\": \"success\", \"message\": \"The two directories have been synced !\"}"
 
     exit 0;
+    
 }
